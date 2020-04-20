@@ -1,3 +1,5 @@
+// TODO: Use a way of wait for results
+
 import React, { Component } from 'react';
 
 import Container from '../../components/Container';
@@ -15,48 +17,34 @@ export default class Main extends Component {
   };
 
   async componentDidMount() {
-    // Retorna todos os livros que já estão em alguma estante
-    const myBooks = await api.getAll();
-
-    // id
-    // Title (string)
-    // authors (array)
-    // shelf (string)
-    // imageLinks (array with smallthumbnail and thumbnail)
-
-    myBooks.map((data) =>
-      this.setState((prevState) => ({
-        booksInShelf: [
-          ...prevState.booksInShelf,
-          {
-            id: data.id,
-            title: data.title,
-            authors: data.authors,
-            shelf: data.shelf,
-            imageLinks: data.imageLinks,
-          },
-        ],
-      }))
-    );
+    this.loadState();
   }
 
   // Function used to update the shelf after select
-  handleUpdateShelf = (e, id) => {
-    // TODO: Use prevState to change the state
+  handleUpdateShelf = (e, book) => {
     e.preventDefault();
 
-    const { booksInShelf } = this.state;
+    api.update(book, e.target.value);
 
-    const bookToChange = booksInShelf.filter(
-      (bookFilter) => bookFilter.id === id
-    );
-    bookToChange[0].shelf = e.target.value;
+    this.loadState();
+  };
+
+  loadState = async () => {
+    // Retorna todos os livros que já estão em alguma estante
+    const booksInApi = await api.getAll();
+
+    const myBooks = booksInApi.map((data) => {
+      return {
+        id: data.id,
+        title: data.title,
+        authors: data.authors,
+        shelf: data.shelf,
+        imageLinks: data.imageLinks,
+      };
+    });
 
     this.setState({
-      booksInShelf: [
-        ...booksInShelf.filter((bookFilter) => bookFilter.id !== id),
-        bookToChange[0],
-      ],
+      booksInShelf: [...myBooks],
     });
   };
 

@@ -18,7 +18,7 @@ export default function BookList({ books, shelfTypes, handleUpdateShelf }) {
           <div className="book-shelf-changer">
             {/* defaultValue is used instead of selected */}
             <select
-              onClick={(e) => handleUpdateShelf(e, book.id)}
+              onClick={(e) => handleUpdateShelf(e, book)}
               defaultValue={book.shelf}
             >
               <option value="move" disabled>
