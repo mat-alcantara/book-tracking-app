@@ -8,6 +8,8 @@ If you want to see more projects, you can find me on [Linkedin](linkedin.com/in/
 
 ![Example 1](./src/imgs/gitrepo1.png)
 
+---
+
 ![Example 2](./src/imgs/gitrepo2.png)
 
 # Built with

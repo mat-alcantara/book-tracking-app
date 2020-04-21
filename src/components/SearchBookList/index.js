@@ -1,7 +1,3 @@
-// TODO: PropTypes
-// TODO: List all books
-// TODO: Implement interactivity
-
 import React from 'react';
 import PropTypes from 'prop-types';
 

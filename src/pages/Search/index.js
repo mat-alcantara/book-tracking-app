@@ -41,6 +41,7 @@ export default class Search extends Component {
 
     await api.update(book, e.target.value);
 
+    // eslint-disable-next-line no-alert
     alert(`${book.title} is now on your shelf`);
   };
 
