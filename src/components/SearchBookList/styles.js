@@ -57,6 +57,7 @@ export const Container = styled.div`
       height: 100%;
       opacity: 0;
       cursor: pointer;
+      text-align: center;
     }
   }
 

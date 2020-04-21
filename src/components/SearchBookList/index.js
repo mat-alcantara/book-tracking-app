@@ -29,7 +29,7 @@ export default function SearchBookList({
                 {/* defaultValue is used instead of selected */}
                 <select
                   onClick={(e) => handleUpdateShelf(e, book)}
-                  defaultValue={book.shelf}
+                  defaultValue={book.shelf ? book.shelf : null}
                 >
                   <option value="move" disabled>
                     Move to...
@@ -39,6 +39,7 @@ export default function SearchBookList({
                       {updateType(shelf)}
                     </option>
                   ))}
+                  <option value={null}>Cancel</option>
                 </select>
               </div>
 
@@ -56,14 +57,14 @@ export default function SearchBookList({
 SearchBookList.propTypes = {
   results: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      authors: PropTypes.arrayOf(PropTypes.string).isRequired,
-      shelf: PropTypes.string.isRequired,
+      id: PropTypes.string,
+      title: PropTypes.string,
+      authors: PropTypes.arrayOf(PropTypes.string),
+      shelf: PropTypes.string,
       imageLinks: PropTypes.shape({
         smallThumbnail: PropTypes.string.isRequired,
         thumbnail: PropTypes.string.isRequired,
-      }).isRequired,
+      }),
     }).isRequired
   ),
   shelfTypes: PropTypes.arrayOf(PropTypes.string).isRequired,

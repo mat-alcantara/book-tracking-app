@@ -29,12 +29,13 @@ export default function BookList({ books, shelfTypes, handleUpdateShelf }) {
                   {updateType(shelf)}
                 </option>
               ))}
+              <option value={null}>Remove</option>
             </select>
           </div>
 
           {/* Book details */}
           <h2>{book.title}</h2>
-          <small>{book.authors[0]}</small>
+          <small>{book.authors ? book.authors[0] : null}</small>
         </li>
       ))}
     </Container>
@@ -44,16 +45,22 @@ export default function BookList({ books, shelfTypes, handleUpdateShelf }) {
 BookList.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      authors: PropTypes.arrayOf(PropTypes.string).isRequired,
-      shelf: PropTypes.string.isRequired,
+      id: PropTypes.string,
+      title: PropTypes.string,
+      authors: PropTypes.arrayOf(PropTypes.string),
+      shelf: PropTypes.string,
       imageLinks: PropTypes.shape({
         smallThumbnail: PropTypes.string.isRequired,
         thumbnail: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired
+      }),
+    })
   ).isRequired,
   shelfTypes: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleUpdateShelf: PropTypes.func.isRequired,
 };
+
+// BookList.defaultProps = {
+//   books: {
+//     authors: [],
+//   },
+// };
