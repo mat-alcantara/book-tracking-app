@@ -2,7 +2,7 @@
 
 Book tracking app is a project of Udacity React Nanodegree. While I was doing this project I made some changes to make it more modern visually, changed the way some features were done and the structure of the project.
 
-If you want to see more projects, you can find me on [Linkedin](linkedin.com/in/mateus-alcantara-2b102218a) or [Medium](https://medium.com/@mateuscastro.al)
+If you want to see more projects, you can find me on [Linkedin](https://linkedin.com/in/mateus-alcantara-2b102218a) or [Medium](https://medium.com/@mateuscastro.al)
 
 # Visuals
 
