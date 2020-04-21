@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Container from '../../components/Container';
 import Header from '../../components/Header';
@@ -73,7 +74,9 @@ export default class Main extends Component {
             />
           </BookShelf>
         ))}
-        <OpenSearch />
+        <Link to="/search">
+          <OpenSearch />
+        </Link>
       </Container>
     );
   }
